@@ -2,7 +2,7 @@
 FROM dockerfile/java:oracle-java7
 
 #maintainer 
-MAINTAINER chris@chrisrichardson.net
+MAINTAINER dstar55@yahoo.com
 
 #default command
 CMD java -jar /data/consumer-0.1.0.jar
