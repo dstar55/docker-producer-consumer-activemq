@@ -26,7 +26,7 @@ $ ifconfig
 
 #####Update `spring.activemq.broker-url` property in file `src/main/resources/application.properties` with IP address
 ```
-$ spring.activemq.broker-url=tcp://172.17.42.1:61616
+$ spring.activemq.broker-url=tcp://xxx.xxx.xxx.xxx:61616
 ```
 
 #####Build project with Maven
