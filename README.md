@@ -1,79 +1,79 @@
 Producer Consumer sample shows how to implement classical Producer Consumer Pattern using [SpringBoot](http://projects.spring.io/spring-boot/), [ActiveMQ](http://activemq.apache.org/) and how to deploy it with [Docker](https://www.docker.com/).
 Scallability can be achieved by invoking more Consumer Docker images.
 
-####Prerequisite
+#### Prerequisite
 
 Installed: Docker, Java 1.7, Maven 3.x, ActiveMQ 5.x
 
-####Steps
+#### Steps
 
-#####Clone source code from git
+##### Clone source code from git
 ```
 $ git clone https://github.com/dstar55/docker-producer-consumer-activemq .
 ```
 
 ####Build Producer
 
-#####Move to Producer project
+##### Move to Producer project
 ```
 $ cd producer
 ```
 
-#####Find IP address od the Docker host
+##### Find IP address od the Docker host
 ```
 $ ifconfig
 ```
 
-#####Update `spring.activemq.broker-url` property in file `src/main/resources/application.properties` with IP address
+##### Update `spring.activemq.broker-url` property in file `src/main/resources/application.properties` with IP address
 ```
 $ spring.activemq.broker-url=tcp://xxx.xxx.xxx.xxx:61616
 ```
 
-#####Build project with Maven
+##### Build project with Maven
 ```
 $ mvn clean install
 ```
 
-#####Move application to data folder
+##### Move application to data folder
 ```
 $ mv ./target/producer*.jar ./data
 ```
 
-#####Build Docker image
+##### Build Docker image
 ```
 $ docker build -t="producer" .
 ```
 
-####Build Consumer
+#### Build Consumer
 
-#####Move to Consumer project
+##### Move to Consumer project
 ```
 $ cd consumer
 ```
 
-#####Update `spring.activemq.broker-url` property in file `src/main/resources/application.properties` with IP address of the Docker host
+##### Update `spring.activemq.broker-url` property in file `src/main/resources/application.properties` with IP address of the Docker host
 ```
 $ spring.activemq.broker-url=tcp://172.17.42.1:61616
 ```
 
-#####Build project with Maven
+##### Build project with Maven
 ```
 $ mvn clean install
 ```
 
-#####Move application to data folder
+##### Move application to data folder
 ```
 $ mv ./target/consumer*.jar ./data
 ```
 
-#####Build Docker image
+##### Build Docker image
 ```
 $ docker build -t="consumer" .
 ```
 
-####Run Producer Consumer
+#### Run Producer Consumer
 
-#####Start ActiveMQ
+##### Start ActiveMQ
 ```
 $ /opt/activemq/bin/activemq start
 ```
