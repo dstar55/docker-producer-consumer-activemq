@@ -12,7 +12,7 @@ Installed: Docker, Java 1.7, Maven 3.x, ActiveMQ 5.x
 $ git clone https://github.com/dstar55/docker-producer-consumer-activemq .
 ```
 
-####Build Producer
+#### Build Producer
 
 ##### Move to Producer project
 ```
